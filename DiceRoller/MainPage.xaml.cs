@@ -1,24 +1,53 @@
-﻿namespace DiceRoller;
+﻿using System.Diagnostics;
+
+namespace DiceRoller;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public int SelectedItem { get; private set; }
+    public int chosenOpt { get; private set; }
 
-	public MainPage()
+    public MainPage()
 	{
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
+    
+
+    void diceChoice(object sender, EventArgs e)
 	{
-		count++;
+        var picker = (Picker)sender;
+        var selectedItem = picker.SelectedItem;
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        switch (SelectedItem)
+        {
+            case 4:
+                chosenOpt = 4;
+                break;
+            case 6:
+                chosenOpt = 6;
+                break;
+            case 10:
+                chosenOpt = 10;
+                break;
+            case 20:
+                chosenOpt = 20;
+                break;
+            case 100:
+                chosenOpt = 100;
+                break;
+            default:
+                chosenOpt = -1;
+                break;
+        }
+    }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+
+
+    void calc(object sender, EventArgs e)
+    {
+        Random rnd = new Random();
+        diceValue = rnd.Next(int chosenOpt);
+    }
 }
 
