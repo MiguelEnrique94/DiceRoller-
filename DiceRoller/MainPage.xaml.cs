@@ -9,6 +9,7 @@ public partial class MainPage : ContentPage
 
     public MainPage()
 	{
+        
 		InitializeComponent();
 	}
 
@@ -47,7 +48,7 @@ public partial class MainPage : ContentPage
     void calc(object sender, EventArgs e)
     {
         Random rnd = new Random();
-        diceValue = rnd.Next(int chosenOpt);
+        int diceValue = rnd.Next(chosenOpt);
     }
 }
 

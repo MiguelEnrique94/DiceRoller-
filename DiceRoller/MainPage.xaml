@@ -33,7 +33,7 @@
                 </Picker.Items>
             </Picker>
 
-            <Button  Grid.Row="3" HorizontalOptions="Center" Text="Rolar o Dado" x:Name="calc"/>
+            <Button Grid.Row="3" HorizontalOptions="Center" Text="Rolar o Dado" x:Name="calc"/>
 
         </Grid>
     </ScrollView>
